@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import ru.mirea.tsybulko.thread.databinding.ActivityMainBinding
+import java.util.Objects
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -18,10 +19,10 @@ class MainActivity : AppCompatActivity() {
 
         val infoTextView = binding.textView
         val mainThread = Thread.currentThread()
-        infoTextView.text = "Current thread name ${mainThread.name}"
+        infoTextView.text = "Current thread name: ${mainThread.name}"
 
         mainThread.name = "Group number: BSBO-07-21, Serial number: 25, Favorite film: Banlieue 13"
-        infoTextView.append("\n New thread name ${mainThread.name}")
+        infoTextView.append("\nNew thread name: ${mainThread.name}")
         Log.d(MainActivity::class.simpleName, "Stack: ${mainThread.stackTrace}")
 
         binding.button.setOnClickListener {
