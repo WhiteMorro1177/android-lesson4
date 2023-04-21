@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'ru.mirea.tsybulko.looper'
+    namespace 'ru.mirea.tsybulko.cryptoloader'
     compileSdk 33
 
     defaultConfig {
-        applicationId "ru.mirea.tsybulko.looper"
+        applicationId "ru.mirea.tsybulko.cryptoloader"
         minSdk 26
         targetSdk 33
         versionCode 1
