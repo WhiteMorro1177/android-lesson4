@@ -44,19 +44,19 @@ class PlayerService : Service() {
 
         // create media player
         mediaPlayer = MediaPlayer.create(this, R.raw.music)
-        mediaPlayer.isLooping = true
+        mediaPlayer.isLooping = false
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         // run media player
         mediaPlayer.start()
-        mediaPlayer.setOnCompletionListener { stopForeground(STOP_FOREGROUND_REMOVE) }
+        mediaPlayer.setOnCompletionListener { stopForeground(true) }
         return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onDestroy() {
         // stop media player
-        stopForeground(STOP_FOREGROUND_REMOVE)
+        stopForeground(true)
         mediaPlayer.stop()
     }
 }

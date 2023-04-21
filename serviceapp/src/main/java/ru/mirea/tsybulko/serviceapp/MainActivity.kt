@@ -46,10 +46,12 @@ class MainActivity : AppCompatActivity() {
         // check service state
         if (!isServiceWorking) {
             val serviceIntent = Intent(this, PlayerService::class.java)
-            ContextCompat.startForegroundService(this, serviceIntent)
+            startService(serviceIntent)
+            isServiceWorking = true
         }
         else {
             stopService(Intent(this, PlayerService::class.java))
+            isServiceWorking = false
         }
     }
 }
